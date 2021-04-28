@@ -34,3 +34,30 @@ Route::get('/forgotpassword', function(){
 
 Route::post('/forgotpassword', [ControllersForgotpasswordController::class, 'index']);
 ```
+5. Making index function 
+```
+//in ForgotPasswordController.php
+
+public function index(Request $request)
+    {
+
+        //check the user exist or not in database
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return back()->withError('Invalid Email');
+        }
+
+        //inserting data with the token 
+        DB::table('table_resetpassword')->insert([
+            'email' => $request->email,
+            'token' => str_random(5)
+        ]);
+
+        //get the token just created above
+        $token_get = DB::table('table_resetpassword')->where('email', $request->email)->first();
+
+        //send link to user
+        Mail::to($user->email)->send(new PasswordResetNotification($token_get->token));
+        return redirect('createpassword')->withSuccess("OTP Has Been Sent To Your Email");
+    }
+```
