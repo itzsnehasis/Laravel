@@ -2,7 +2,7 @@
 
 1. Setting up forgot password link and route
 ```
-//in login.blade.php
+*//in login.blade.php*
                   
 <a href="/forgotpassword">Forgot Password</a>
 
