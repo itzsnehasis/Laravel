@@ -28,3 +28,9 @@ Route::get('/forgotpassword', function(){
 	</div>
 </form>
 ```
+3. Setting up route for for forgotpassword form submission 
+```
+//in web.php
+
+Route::post('/forgotpassword', [ControllersForgotpasswordController::class, 'index']);
+```
