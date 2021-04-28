@@ -34,7 +34,20 @@ Route::get('/forgotpassword', function(){
 
 Route::post('/forgotpassword', [ControllersForgotpasswordController::class, 'index']);
 ```
-5. Making index function 
+4. Setting up a new Table 
+```
+//in create_resetpassword_migration.php
+
+public function up()
+    {
+        Schema::create('table_resetpassword', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamps();
+        });
+    }
+```
+6. Making index function 
 ```
 //in ForgotPasswordController.php
 
