@@ -74,4 +74,30 @@ public function index(Request $request)
         return redirect('createpassword')->withSuccess("OTP Has Been Sent To Your Email");
     }
 ```
-7. Setting up Mail\
+7. Setting up Mail\PasswordResetNotification.php 
+```
+class PasswordResetNotification extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct($token)
+    {
+        $this->token = $token;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view('emails.resetpassword')->with(['token' => $this->token]);
+    }
+}
+```
