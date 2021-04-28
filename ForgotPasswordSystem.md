@@ -116,7 +116,7 @@ Route::get('createpassword', function(){
 	return view('pages.createpassword');
 });
 ```
-10. Setting up create password from
+10. Setting up create password form
 ```
 //in createpassword.blade.php
 
