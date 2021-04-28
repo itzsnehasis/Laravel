@@ -101,3 +101,10 @@ class PasswordResetNotification extends Mailable
     }
 }
 ```
+8. Setting up resetpassword.blade.php
+```
+<center>
+    <h1>OTP</h1>
+    <b>{{$token}}</b>
+</center>
+```
