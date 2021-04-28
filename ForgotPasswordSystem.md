@@ -145,3 +145,24 @@ Route::get('createpassword', function(){
 
 Route::post('/createpassword', [ControllersForgotpasswordController::class, 'createpassword']);
 ```
+12. Setting up createpassword function 
+```
+//in ForgotPasswordController.php
+
+public function createpassword(Request $request)
+    {
+        $user_token  = DB::table('table_resetpassword')->where('email', $request->email)->first(); 
+        if (!$user_token) {
+            return back()->withError('Invalid Email');
+        }
+        if($user_token->token == $request->token){
+            User::where('email', $request->email)->update(['password' => bcrypt($request->password)]);
+            DB::delete('delete from table_resetpassword where email = ?',[$user_token->email]);
+            return redirect('/login')->withSuccess("Password Has Been Reset");
+        }
+        
+        else{
+            return back()->withError("Invalid OTP");
+        }
+    }
+```
