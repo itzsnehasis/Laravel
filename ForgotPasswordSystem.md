@@ -28,7 +28,7 @@ Route::get('/forgotpassword', function(){
 	</div>
 </form>
 ```
-3. Setting up route for for forgotpassword form submission 
+3. Setting up route for forgotpassword form submission 
 ```
 //in web.php
 
