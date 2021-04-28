@@ -116,3 +116,26 @@ Route::get('createpassword', function(){
 	return view('pages.createpassword');
 });
 ```
+10. Setting up create password from
+```
+//in createpassword.blade.php
+
+<form class="form-row mt-4 mb-5 align-items-center" action="/createpassword" method="POST">
+	@csrf
+	<div class="form-group col-sm-12">
+	  <label>Email Address:</label>
+	  <input type="email" class="form-control" placeholder="" name="email">
+	</div>
+	<div class="form-group col-sm-12">
+	    <label>New Password</label>
+	    <input type="password" class="form-control" placeholder="" name="password">
+	</div>
+	<div class="form-group col-sm-12">
+	    <label>OTP</label>
+	    <input type="text" class="form-control" placeholder="" name="token">
+	</div>
+	<div class="col-sm-6">
+	  <button type="submit" class="btn btn-primary btn-block">submit</button>
+	</div>
+</form>
+```
