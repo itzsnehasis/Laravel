@@ -6,3 +6,8 @@
 
 <a href="/forgotpassword">Forgot Password</a>
 ```
+```
+//in web.php
+
+Route::post('/forgotpassword', [ControllersForgotpasswordController::class, 'index']);
+```
