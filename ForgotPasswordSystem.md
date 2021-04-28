@@ -108,3 +108,11 @@ class PasswordResetNotification extends Mailable
     <b>{{$token}}</b>
 </center>
 ```
+9. Creating route for createpassword redirection 
+```
+//in web.php
+
+Route::get('createpassword', function(){
+	return view('pages.createpassword');
+});
+```
