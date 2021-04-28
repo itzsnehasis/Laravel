@@ -13,3 +13,18 @@ Route::get('/forgotpassword', function(){
 	return view('pages.forgotpassword');
 });
 ```
+2. Setting up forgot password form
+```
+//in forgotpassword.blade.php
+
+<form class="form-row mt-4 mb-5 align-items-center" action="/forgotpassword" method="POST">
+	@csrf
+	<div class="form-group col-sm-12">
+	  <label>Email Address:</label>
+	  <input type="email" class="form-control" placeholder="" name="email">
+	</div>
+	<div class="col-sm-6">
+	  <button type="submit" class="btn btn-primary btn-block">submit</button>
+	</div>
+</form>
+```
