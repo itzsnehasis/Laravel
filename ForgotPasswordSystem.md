@@ -139,3 +139,9 @@ Route::get('createpassword', function(){
 	</div>
 </form>
 ```
+11. Setting up route for createpassword form 
+```
+//in web.php
+
+Route::post('/createpassword', [ControllersForgotpasswordController::class, 'createpassword']);
+```
