@@ -9,5 +9,7 @@
 ```
 //in web.php
 
-Route::post('/forgotpassword', [ControllersForgotpasswordController::class, 'index']);
+Route::get('/forgotpassword', function(){
+	return view('pages.forgotpassword');
+});
 ```
