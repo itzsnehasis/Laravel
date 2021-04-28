@@ -1,5 +1,5 @@
-
-## ![Making a forgot password system (A otp will be sent to user and user can change password)](https://image.freepik.com/free-vector/forgot-password-concept-illustration_114360-1123.jpg)
+##Making a forgot password system (A otp will be sent to user and user can change password)
+![](https://image.freepik.com/free-vector/forgot-password-concept-illustration_114360-1123.jpg)
 
 1. Setting up forgot password link and route
 ```
