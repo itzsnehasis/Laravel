@@ -74,3 +74,4 @@ public function index(Request $request)
         return redirect('createpassword')->withSuccess("OTP Has Been Sent To Your Email");
     }
 ```
+7. Setting up Mail\
