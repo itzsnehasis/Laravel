@@ -2,12 +2,12 @@
 ![](https://image.freepik.com/free-vector/forgot-password-concept-illustration_114360-1123.jpg)
 
 1. Setting up forgot password link and route
-```
+```php
 //in login.blade.php
 
 <a href="/forgotpassword">Forgot Password</a>
 ```
-```
+```php
 //in web.php
 
 Route::get('/forgotpassword', function(){
@@ -15,7 +15,7 @@ Route::get('/forgotpassword', function(){
 });
 ```
 2. Setting up forgot password form
-```
+```php
 //in forgotpassword.blade.php
 
 <form class="form-row mt-4 mb-5 align-items-center" action="/forgotpassword" method="POST">
@@ -30,13 +30,13 @@ Route::get('/forgotpassword', function(){
 </form>
 ```
 3. Setting up route for forgotpassword form submission 
-```
+```php
 //in web.php
 
 Route::post('/forgotpassword', [ControllersForgotpasswordController::class, 'index']);
 ```
 4. Setting up a new Table 
-```
+```php
 //in create_resetpassword_migration.php
 
 public function up()
@@ -49,7 +49,7 @@ public function up()
     }
 ```
 6. Making index function 
-```
+```php
 //in ForgotPasswordController.php
 
 public function index(Request $request)
@@ -76,7 +76,7 @@ public function index(Request $request)
     }
 ```
 7. Setting up Mail\PasswordResetNotification.php 
-```
+```php
 class PasswordResetNotification extends Mailable
 {
     use Queueable, SerializesModels;
@@ -103,14 +103,14 @@ class PasswordResetNotification extends Mailable
 }
 ```
 8. Setting up resetpassword.blade.php
-```
+```php
 <center>
     <h1>OTP</h1>
     <b>{{$token}}</b>
 </center>
 ```
 9. Creating route for createpassword redirection 
-```
+```php
 //in web.php
 
 Route::get('createpassword', function(){
@@ -118,7 +118,7 @@ Route::get('createpassword', function(){
 });
 ```
 10. Setting up create password form
-```
+```php
 //in createpassword.blade.php
 
 <form class="form-row mt-4 mb-5 align-items-center" action="/createpassword" method="POST">
@@ -141,13 +141,13 @@ Route::get('createpassword', function(){
 </form>
 ```
 11. Setting up route for createpassword form 
-```
+```php
 //in web.php
 
 Route::post('/createpassword', [ControllersForgotpasswordController::class, 'createpassword']);
 ```
 12. Setting up createpassword function 
-```
+```php
 //in ForgotPasswordController.php
 
 public function createpassword(Request $request)
